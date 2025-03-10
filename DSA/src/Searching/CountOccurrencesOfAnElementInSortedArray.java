@@ -1,27 +1,25 @@
 package Searching;
 
-import java.util.Arrays;
-
-public class Leetcode34_FindFirstAndLastPositionOfElementInArray {
+public class CountOccurrencesOfAnElementInSortedArray {
 
 	public static void main(String[] args) {
-		int[] nums= {5,6,7,8,8,8,10};
-		int target=8;
-		
-		System.out.println(Arrays.toString(searchRange(nums,target)));
+		int arr[] = {1, 1, 2, 2, 2, 2, 3};
+		int target = 2;
+		System.out.println(countFreq(arr,target));
 
 	}
-
-	public static int[] searchRange(int[] nums, int target) {
-
-		int[] ans = new int[2];
-		ans[0] = firstOccurrence(nums, target);
-		ans[1] = lastOccurrence(nums, target);
-
-		return ans;
-	}
-
-	static int firstOccurrence(int[] nums, int target) {
+	
+	static int countFreq(int[] arr, int target) {
+        // code here
+        int first=firstOccurrence(arr,target);
+        int last=lastOccurrence(arr,target);
+        if(last!=-1 && first!=-1){
+            return last-first+1;
+        }
+        return 0;
+        
+    }
+    static int firstOccurrence(int[] nums, int target) {
 		int n = nums.length;
 		int low = 0;
 		int high = n - 1;
