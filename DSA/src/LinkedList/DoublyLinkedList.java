@@ -9,8 +9,11 @@ public class DoublyLinkedList {
 		DLL_Node head=constructDLL(arr);
 		printDLL(head);
 		
-		DLL_Node deletedHead=deleteHeadofDLL(head);
-		printDLL(deletedHead);
+		head=deleteHeadofDLL(head);
+		printDLL(head);
+		
+		head=deleteTailofDLL(head);
+		printDLL(head);
 
 	}
 	
@@ -18,7 +21,7 @@ public class DoublyLinkedList {
 		// TODO Auto-generated method stub
 		DLL_Node temp=head;
 		while(temp!=null) {
-			System.out.print(temp.data+"<=>");
+			System.out.print(temp.data+"<->");
 			temp=temp.next;
 		}
 		System.out.println();
@@ -49,6 +52,22 @@ public class DoublyLinkedList {
 		head=head.next;
 		head.back=null;
 		prev.next=null;
+		
+		return head;
+	}
+	
+	private static DLL_Node deleteTailofDLL(DLL_Node head) {
+		if(head==null || head.next==null) {
+			return null;
+		}
+		DLL_Node tail=head;
+		
+		while(tail.next!=null) {
+			tail=tail.next;
+		}
+		DLL_Node prev=tail.back;
+		prev.next=null;
+		tail.back=null;
 		
 		return head;
 	}
