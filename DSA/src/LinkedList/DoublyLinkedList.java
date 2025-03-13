@@ -29,6 +29,9 @@ public class DoublyLinkedList {
 		
 		head = insertBeforeKthElement(head, 99, 4);
 		printDLL(head);
+		
+		insertBeforeNode(head.next.next.next, 81);
+		printDLL(head);
 
 	}
 
@@ -188,6 +191,12 @@ public class DoublyLinkedList {
 	}
 	
 	private static void insertBeforeNode(DLL_Node node, int val) {
+		DLL_Node prev=node.back;
+		DLL_Node newNode=new DLL_Node(val);
+		prev.next=newNode;
+		newNode.back=prev;
+		newNode.next=node;
+		node.back=newNode;
 		
 	}
 }
