@@ -20,6 +20,9 @@ public class DoublyLinkedList {
 
 		deleteNode(head.next);
 		printDLL(head);
+		
+		head=insertBeforeHead(head,11);
+		printDLL(head);
 
 	}
 
@@ -125,6 +128,14 @@ public class DoublyLinkedList {
 
 		temp.next = temp.back = null;
 
+	}
+	
+	private static DLL_Node insertBeforeHead(DLL_Node head, int val) {
+		DLL_Node newHead=new DLL_Node(val);
+		newHead.next=head;
+		head.back=newHead;
+		
+		return newHead;
 	}
 
 }
