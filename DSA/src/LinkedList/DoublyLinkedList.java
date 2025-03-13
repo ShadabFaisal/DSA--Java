@@ -35,7 +35,7 @@ public class DoublyLinkedList {
 
 	}
 
-	private static void printDLL(DLL_Node head) {
+	public static void printDLL(DLL_Node head) {
 		// TODO Auto-generated method stub
 		DLL_Node temp = head;
 		while (temp != null) {
@@ -46,7 +46,7 @@ public class DoublyLinkedList {
 
 	}
 
-	private static DLL_Node constructDLL(int[] arr) {
+	public static DLL_Node constructDLL(int[] arr) {
 
 		DLL_Node head = new DLL_Node(arr[0]);
 		DLL_Node prev = head;
@@ -62,7 +62,7 @@ public class DoublyLinkedList {
 		return head;
 	}
 
-	private static DLL_Node deleteHeadofDLL(DLL_Node head) {
+	public static DLL_Node deleteHeadofDLL(DLL_Node head) {
 		if (head == null || head.next == null) {
 			return null;
 		}
@@ -139,7 +139,7 @@ public class DoublyLinkedList {
 
 	}
 
-	private static DLL_Node insertBeforeHead(DLL_Node head, int val) {
+	public static DLL_Node insertBeforeHead(DLL_Node head, int val) {
 		DLL_Node newHead = new DLL_Node(val);
 		newHead.next = head;
 		head.back = newHead;
@@ -147,7 +147,7 @@ public class DoublyLinkedList {
 		return newHead;
 	}
 
-	private static DLL_Node insertBeforeTail(DLL_Node head, int val) {
+	public static DLL_Node insertBeforeTail(DLL_Node head, int val) {
 
 		if (head.next == null) {
 			return insertBeforeHead(head, val);
@@ -167,7 +167,7 @@ public class DoublyLinkedList {
 
 	}
 
-	private static DLL_Node insertBeforeKthElement(DLL_Node head, int val, int k) {
+	public static DLL_Node insertBeforeKthElement(DLL_Node head, int val, int k) {
 
 		if(k==1) {
 			return insertBeforeHead(head,val);
@@ -190,7 +190,7 @@ public class DoublyLinkedList {
 
 	}
 	
-	private static void insertBeforeNode(DLL_Node node, int val) {
+	public static void insertBeforeNode(DLL_Node node, int val) {
 		DLL_Node prev=node.back;
 		DLL_Node newNode=new DLL_Node(val);
 		prev.next=newNode;
