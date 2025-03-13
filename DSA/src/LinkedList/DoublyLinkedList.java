@@ -20,8 +20,11 @@ public class DoublyLinkedList {
 
 		deleteNode(head.next);
 		printDLL(head);
-		
-		head=insertBeforeHead(head,11);
+
+		head = insertBeforeHead(head, 11);
+		printDLL(head);
+
+		head = insertBeforeTail(head, 17);
 		printDLL(head);
 
 	}
@@ -129,13 +132,28 @@ public class DoublyLinkedList {
 		temp.next = temp.back = null;
 
 	}
-	
+
 	private static DLL_Node insertBeforeHead(DLL_Node head, int val) {
-		DLL_Node newHead=new DLL_Node(val);
-		newHead.next=head;
-		head.back=newHead;
-		
+		DLL_Node newHead = new DLL_Node(val);
+		newHead.next = head;
+		head.back = newHead;
+
 		return newHead;
 	}
 
+	private static DLL_Node insertBeforeTail(DLL_Node head, int val) {
+		DLL_Node tail = head;
+		while (tail.next != null) {
+			tail = tail.next;
+		}
+		DLL_Node prev = tail.back;
+
+		DLL_Node newNode = new DLL_Node(val);
+		prev.next = newNode;
+		newNode.back = prev;
+		newNode.next = tail;
+		tail.back = newNode;
+		return head;
+
+	}
 }
