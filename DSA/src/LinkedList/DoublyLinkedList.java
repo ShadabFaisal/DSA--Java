@@ -14,6 +14,9 @@ public class DoublyLinkedList {
 		
 		head=deleteTailofDLL(head);
 		printDLL(head);
+		
+		head=deleteKthNode(head, 3);
+		printDLL(head);
 
 	}
 	
@@ -70,6 +73,42 @@ public class DoublyLinkedList {
 		tail.back=null;
 		
 		return head;
+	}
+	
+	private static DLL_Node deleteKthNode(DLL_Node head, int k) {
+		
+		
+		DLL_Node temp=head;
+		int cnt=0;
+		
+		while(temp!=null) {
+			cnt++;
+			if(cnt==k) {
+				break;
+			}
+			temp=temp.next;
+		}
+		DLL_Node prev=temp.back;
+		DLL_Node front=temp.next;
+		
+		if(prev==null && front==null) {
+			return null;
+		}
+		else if(prev==null) {
+			return deleteHeadofDLL(head);
+		}
+		else if(front==null) {
+			return deleteTailofDLL(head);
+		}
+		else {
+			prev.next=front;
+			front.back=prev;
+			temp.next=null;
+			temp.back=null;
+		}
+		
+		return head;
+		
 	}
 
 }
