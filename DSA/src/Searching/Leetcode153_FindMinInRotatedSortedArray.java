@@ -15,6 +15,11 @@ public class Leetcode153_FindMinInRotatedSortedArray {
 
 		while (low <= high) {
 			int mid = low + (high - low) / 2;
+			
+			if(nums[low]<=nums[high]) {
+				ans = Math.min(ans, nums[low]);
+				break;
+			}
 
 			// Identify the sorted half
 			// If Left is sorted pick the minimum i.e. nums[low]
