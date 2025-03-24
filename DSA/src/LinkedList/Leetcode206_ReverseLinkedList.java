@@ -13,7 +13,7 @@ public class Leetcode206_ReverseLinkedList {
 
 		printLinkedList(head);
 
-		head = reverseList(head);
+		head = reverseListUsingRecursion(head);
 
 		printLinkedList(head);
 
