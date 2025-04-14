@@ -10,7 +10,6 @@ public class FindNthRootOfM {
 	public static int nthRoot(int m, int n) {
         long low=1;
         long high=m;
-        long ans=1;
 
         while(low<=high){
             long mid=(low+high)/2;
