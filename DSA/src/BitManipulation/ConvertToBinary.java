@@ -1,6 +1,6 @@
 package BitManipulation;
 
-public class CovertToBinary {
+public class ConvertToBinary {
 
 	public static void main(String[] args) {
 		int n=13;
